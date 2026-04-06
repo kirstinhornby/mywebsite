@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Kirstin Hornby | Hornby Growth Strategies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --dark:        #1A2332;
+      --dark-mid:    #222C3C;
+      --dark-light:  #2E3A4E;
+      --cream:       #F6F5F3;
+      --white:       #FFFFFF;
+      --ink:         #1A2332;
+      --mid:         #56636F;
+      --light:       #9AA4AE;
+      --border:      #E2E6EA;
+      --accent:      #D4623C;
+      --accent-soft: #FAE9E3;
+      --accent-mid:  #B84F2D;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 5vw;
+      background: var(--dark);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: #fff; }
+
+    .nav-cta {
+      display: inline-block;
+      padding: 0.55rem 1.25rem;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--accent-mid); }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      background: var(--dark);
+      padding: 9rem 5vw 5rem;
+    }
+
+    .page-hero-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .page-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.2;
+      max-width: 640px;
+    }
+
+    .page-hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    /* ── BIO SECTION ── */
+    .bio-section {
+      background: var(--white);
+      padding: 5rem 5vw;
+    }
+
+    .bio-grid {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 5rem;
+      align-items: start;
+      max-width: 1020px;
+    }
+
+    .bio-sidebar {
+      position: sticky;
+      top: 6rem;
+    }
+
+    .bio-photo {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      outline: 3px solid var(--accent);
+      outline-offset: 4px;
+      margin-bottom: 2rem;
+    }
+
+    .bio-photo-placeholder {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: var(--dark-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      outline: 3px solid var(--accent);
+      outline-offset: 4px;
+      margin-bottom: 2rem;
+    }
+
+    .bio-sidebar-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--ink);
+      margin-bottom: 0.25rem;
+    }
+
+    .bio-sidebar-title {
+      font-size: 0.85rem;
+      color: var(--mid);
+      margin-bottom: 1.5rem;
+    }
+
+    .bio-sidebar-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .bio-sidebar-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .bio-sidebar-links a:hover { opacity: 0.75; }
+
+    .bio-content p {
+      color: var(--mid);
+      font-size: 1.05rem;
+      line-height: 1.85;
+      margin-bottom: 1.4rem;
+    }
+
+    .bio-content p:last-child { margin-bottom: 0; }
+
+    /* ── CREDENTIALS ── */
+    .credentials-section {
+      background: var(--cream);
+      padding: 5rem 5vw;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      font-weight: 400;
+      line-height: 1.25;
+      margin-bottom: 0.75rem;
+      color: var(--ink);
+    }
+
+    .divider {
+      width: 2.5rem;
+      height: 2px;
+      background: var(--accent);
+      margin-bottom: 2.5rem;
+    }
+
+    .credentials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1020px;
+    }
+
+    .credential-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--accent);
+      border-radius: 4px;
+      padding: 1.75rem;
+    }
+
+    .credential-card-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+
+    .credential-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.35;
+      margin-bottom: 0.5rem;
+    }
+
+    .credential-card p {
+      font-size: 0.88rem;
+      color: var(--mid);
+      line-height: 1.65;
+    }
+
+    /* ── IMPACT STATS (dark) ── */
+    .stats-section {
+      background: var(--dark);
+      padding: 5rem 5vw;
+    }
+
+    .stats-section .section-label { color: var(--accent); }
+    .stats-section .section-title { color: #fff; }
+    .stats-section .divider { background: var(--accent); }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 4px;
+      overflow: hidden;
+      max-width: 1020px;
+    }
+
+    .stat-item {
+      background: var(--dark);
+      padding: 2rem 1.75rem;
+      transition: background 0.25s;
+    }
+    .stat-item:hover { background: var(--dark-light); }
+
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.5;
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: var(--cream);
+      padding: 5rem 5vw;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 1rem;
+    }
+
+    .cta-section p {
+      font-size: 1.05rem;
+      color: var(--mid);
+      max-width: 520px;
+      margin: 0 auto 2rem;
+    }
+
+    .btn-accent {
+      display: inline-block;
+      padding: 0.9rem 2rem;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-accent:hover { background: var(--accent-mid); transform: translateY(-1px); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #111820;
+      padding: 1.75rem 5vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.3);
+      text-decoration: none;
+    }
+
+    .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.2); }
+
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.3);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .bio-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .bio-sidebar { position: static; }
+      .bio-photo, .bio-photo-placeholder { width: 160px; height: 160px; }
+      .nav-links, .nav-cta { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="index.html">Hornby Growth Strategies</a>
+    <ul class="nav-links">
+      <li><a href="index.html#services">Expertise</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="index.html#work">Insights</a></li>
+      <li><a href="index.html#case-studies">Case Studies</a></li>
+    </ul>
+    <a class="nav-cta" href="index.html#contact">Let's Talk</a>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <p class="page-hero-label">About</p>
+    <h1>Marketing Strategist. <em>Growth Partner.</em> Trusted Advisor.</h1>
+  </div>
+
+  <!-- BIO -->
+  <section class="bio-section">
+    <div class="bio-grid">
+      <div class="bio-sidebar">
+        <img src="headshot.jpeg" alt="Kirstin Hornby" class="bio-photo"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="bio-photo-placeholder" style="display:none;">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        </div>
+        <p class="bio-sidebar-name">Kirstin Hornby</p>
+        <p class="bio-sidebar-title">Marketing Strategist &amp; Growth Advisor</p>
+        <div class="bio-sidebar-links">
+          <a href="https://www.linkedin.com/in/kirstinhornby" target="_blank">→ LinkedIn</a>
+          <a href="index.html#contact">→ Get in Touch</a>
+          <a href="https://kirstinhornby.substack.com" target="_blank">→ Substack</a>
+        </div>
+      </div>
+
+      <div class="bio-content">
+        <p>Kirstin Hornby is a seasoned marketing strategist with over 20 years of experience driving growth across both B2B and B2C sectors. She honed her foundational marketing skills at industry leaders like PayPal and Gap before applying them in high-growth environments, where she built marketing teams from the ground up at startups like NileGuide and Polyvore. Her work at Polyvore led to a 40% increase in customers and contributed to Yahoo's $230M acquisition of the company.</p>
+
+        <p>Most recently, she led Growth Marketing teams at unicorns Culture Amp and Malwarebytes, both mid-size companies in high growth mode.</p>
+
+        <p>Kirstin's expertise spans a wide range of industries, including SaaS, Fintech, Cybersecurity, Marketplaces, and more. She specializes in KPIs, marketing channel optimization, attribution, and forecasting to maximize efficiency and ROI. Her strategic leadership has driven major transformations at companies like Culture Amp, where she increased new logo ARR by 34%, and Malwarebytes, where she managed a $40M budget and improved conversion rates by 130%.</p>
+
+        <p>Kirstin is recognized for her ability to quickly build trust with leaders and teams, driving meaningful operational changes and enhancing team effectiveness. Known for blending creative vision with data-driven precision, she works closely with CMOs and CEOs to align marketing strategy with business goals, ensuring the ROI is clearly communicated to the C-suite and board to guide informed decision-making.</p>
+
+        <p>Kirstin is deeply committed to empowering others, especially in emerging economies. She lived in Benin, West Africa, where she partnered with a local NGO to grow small, female-led businesses, and has led multiple marketing consulting projects through Rippleworks, partnering with social ventures in Mexico, India, and Kenya.</p>
+
+        <p>Kirstin is a published author, having co-authored a leadership book in collaboration with a Harvard Business School professor, published by Prentice Hall in 2004.</p>
+
+        <p>Kirstin holds a BA in Philosophy, graduating cum laude from Princeton University, and an MBA in Strategy, Marketing, and Operations from the Kellogg School of Management at Northwestern University.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAREER HIGHLIGHTS -->
+  <section class="stats-section">
+    <p class="section-label">Impact by the Numbers</p>
+    <h2 class="section-title">Results that define a career</h2>
+    <div class="divider"></div>
+    <div class="stats-grid">
+      <div class="stat-item">
+        <p class="stat-num">20+</p>
+        <p class="stat-label">Years driving growth in B2B &amp; B2C marketing</p>
+      </div>
+      <div class="stat-item">
+        <p class="stat-num">40%</p>
+        <p class="stat-label">Customer increase at Polyvore, contributing to Yahoo's $230M acquisition</p>
+      </div>
+      <div class="stat-item">
+        <p class="stat-num">34%</p>
+        <p class="stat-label">Increase in new logo ARR at Culture Amp</p>
+      </div>
+      <div class="stat-item">
+        <p class="stat-num">130%</p>
+        <p class="stat-label">Improvement in conversion rates at Malwarebytes</p>
+      </div>
+      <div class="stat-item">
+        <p class="stat-num">$40M</p>
+        <p class="stat-label">Marketing budget managed at Malwarebytes</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREDENTIALS -->
+  <section class="credentials-section">
+    <p class="section-label">Background</p>
+    <h2 class="section-title">Education &amp; Recognition</h2>
+    <div class="divider"></div>
+    <div class="credentials-grid">
+
+      <div class="credential-card">
+        <p class="credential-card-label">Education</p>
+        <h3>Princeton University</h3>
+        <p>BA in Philosophy, graduated cum laude.</p>
+      </div>
+
+      <div class="credential-card">
+        <p class="credential-card-label">Education</p>
+        <h3>Kellogg School of Management, Northwestern University</h3>
+        <p>MBA in Strategy, Marketing, and Operations.</p>
+      </div>
+
+      <div class="credential-card">
+        <p class="credential-card-label">Published Author</p>
+        <h3>Leadership Book, Prentice Hall (2004)</h3>
+        <p>Co-authored a leadership book in collaboration with a Harvard Business School professor, published by Prentice Hall.</p>
+      </div>
+
+      <div class="credential-card">
+        <p class="credential-card-label">Community Impact</p>
+        <h3>Rippleworks &amp; West Africa</h3>
+        <p>Partnered with a local NGO in Benin, West Africa to grow female-led small businesses. Led marketing consulting projects with social ventures in Mexico, India, and Kenya through Rippleworks.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Ready to work together?</h2>
+    <p>Whether you need strategic guidance, team alignment, or a clear path to measurable growth — I'd love to connect.</p>
+    <a href="index.html#contact" class="btn-accent">Get in Touch</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <a class="footer-logo" href="index.html">Hornby Growth Strategies</a>
+    <p class="footer-copy">© 2026 Kirstin Hornby. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/kirstinhornby" target="_blank">LinkedIn</a>
+      <a href="https://kirstinhornby.substack.com" target="_blank">Substack</a>
+    </div>
+  </footer>
+
+</body>
+</html>
