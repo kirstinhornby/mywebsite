@@ -94,14 +94,14 @@
     #hero {
       background: var(--dark);
       min-height: 88vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: flex;
       align-items: center;
+      justify-content: center;
       padding: 8rem 5vw 5rem;
-      gap: 4rem;
+      gap: 6rem;
     }
 
-    .hero-text { max-width: 580px; }
+    .hero-text { max-width: 500px; flex-shrink: 0; }
 
     .hero-tag {
       display: inline-flex;
@@ -624,7 +624,7 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
-      #hero { grid-template-columns: 1fr; }
+      #hero { flex-direction: column; }
       .hero-visual { display: none; }
     }
     @media (max-width: 768px) {
@@ -641,7 +641,7 @@
     <a class="nav-logo" href="#hero">Hornby Growth Strategies</a>
     <ul class="nav-links">
       <li><a href="#services">Expertise</a></li>
-      <li><a href="#about">About</a></li>
+      <li><a href="about.html">About</a></li>
       <li><a href="#work">Insights</a></li>
       <li><a href="#case-studies">Case Studies</a></li>
     </ul>
@@ -659,17 +659,13 @@
         <a href="#contact" class="btn-ghost-dark">Let's Talk</a>
       </div>
     </div>
-    <div class="hero-visual" style="display:flex; align-items:flex-end; justify-content:flex-end; position:relative;">
+    <div class="hero-visual" style="flex-shrink:0; position:relative; align-self:flex-end;">
       <img src="headshot.jpeg" alt="Kirstin Hornby"
-        style="width:100%; max-width:440px; height:580px; object-fit:cover; object-position:center 15%;
+        style="width:300px; height:420px; object-fit:cover; object-position:center 15%;
                border-radius:6px 6px 0 0; display:block;" />
       <!-- fade bottom into background -->
-      <div style="position:absolute; bottom:0; left:0; right:0; height:120px;
+      <div style="position:absolute; bottom:0; left:0; right:0; height:100px;
                   background:linear-gradient(to bottom, transparent, var(--dark));
-                  pointer-events:none;"></div>
-      <!-- subtle left edge fade -->
-      <div style="position:absolute; top:0; left:0; bottom:0; width:80px;
-                  background:linear-gradient(to right, var(--dark), transparent);
                   pointer-events:none;"></div>
     </div>
   </section>
@@ -747,7 +743,7 @@
         <h2 class="section-title">Recent posts</h2>
         <div class="divider"></div>
       </div>
-      <a href="https://www.kirstinhornby.com/blog" target="_blank" class="btn-ghost">View All Posts →</a>
+      <a href="https://kirstinhornby.substack.com" target="_blank" class="btn-ghost">View All Posts →</a>
     </div>
     <div class="work-grid">
       <div class="work-card" onclick="window.open('https://www.kirstinhornby.com/post/stop-leaving-pipeline-on-the-table','_blank')">
@@ -853,24 +849,24 @@
         <p>Whether you need strategic guidance, team alignment, or a clear path to measurable growth — I'm happy to connect.</p>
         <a class="contact-link" href="https://www.linkedin.com/in/kirstinhornby" target="_blank">→ Connect on LinkedIn</a>
       </div>
-      <form onsubmit="handleSubmit(event)">
+      <form action="https://formspree.io/f/xkopqkvo" method="POST">
         <div class="name-row">
           <div>
             <label for="fname">First Name</label>
-            <input type="text" id="fname" placeholder="Jane" required />
+            <input type="text" id="fname" name="first_name" placeholder="Jane" required />
           </div>
           <div>
             <label for="lname">Last Name</label>
-            <input type="text" id="lname" placeholder="Smith" required />
+            <input type="text" id="lname" name="last_name" placeholder="Smith" required />
           </div>
         </div>
         <div>
           <label for="email">Email</label>
-          <input type="email" id="email" placeholder="jane@example.com" required />
+          <input type="email" id="email" name="email" placeholder="jane@example.com" required />
         </div>
         <div>
           <label for="message">Message</label>
-          <textarea id="message" placeholder="Tell me about your situation..." required></textarea>
+          <textarea id="message" name="message" placeholder="Tell me about your situation..." required></textarea>
         </div>
         <button type="submit" class="btn-accent" style="align-self:flex-start;">Send Message</button>
       </form>
